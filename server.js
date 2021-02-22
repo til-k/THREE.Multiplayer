@@ -4,6 +4,7 @@
 const express = require('express');
 const app = express();
 
+const {performance} = require('perf_hooks');
 ////////HTTP/////////
 const http = require('http').createServer(app);
 
@@ -18,7 +19,7 @@ console.log('Server is running localhost on port: ' + port );
 
 /////SOCKET.IO///////
 const io = require('socket.io').listen(server);
-
+const cannon_es = require('cannon-es');
 ////////EJS//////////
 const ejs = require('ejs');
 
@@ -31,6 +32,9 @@ app.set('view-engine', 'html');
 
 //Setup the public client folder
 app.use(express.static(__dirname + '/public'));
+
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
 
 let clients = {}
 
@@ -82,6 +86,18 @@ app.get('/', (req, res) => {
 	res.render('index.html');
 
 });
+
+app.post('/roll', function(req, res){
+  console.log(req.body);
+  res.sendStatus(204);
+  io.sockets.emit('reroll', req.body);
+});
+
+app.get('/roll', (req, res) => {
+
+	res.render('roll.html');
+});
+
 
 //404 view
 app.get('/*', (req, res) => {

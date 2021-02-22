@@ -11,13 +11,23 @@
   "author": "Or Fleisher <contact@orfleisher.com>",
   "license": "MIT",
   "dependencies": {
+    "@enable3d/ammo-physics": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "cannon": "^0.6.2",
+    "cannon-es": "^0.16.0",
     "ejs": "^2.5.7",
     "event-emitter-es6": "^1.1.5",
     "express": "^4.16.2",
     "gsap": "^1.20.3",
+    "howler": "^2.2.1",
     "http": "0.0.0",
+    "mmap-io": "^1.1.7",
+    "node-gyp": "^7.1.2",
+    "perf_hooks": "0.0.1",
+    "physijs": "^1.0.4",
     "socket.io": "^2.0.4",
-    "three": "^0.89.0"
+    "three": "^0.125.2",
+    "worker": "^0.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

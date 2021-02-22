@@ -51,7 +51,7 @@ module.exports = (THREE) =>{
 		this.viewHalfX = 0;
 		this.viewHalfY = 0;
 
-		this.lockYPos = true;
+		this.lockYPos = false;
 
 		if ( this.domElement !== document ) {
 

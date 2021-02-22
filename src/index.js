@@ -27,7 +27,7 @@ socket.on('introduction', (_id, _clientNum, _ids)=>{
       }
 
       //Add initial users to the scene
-      glScene.scene.add(clients[_ids[i]].mesh);
+      //glScene.scene.add(clients[_ids[i]].mesh);
     }
   }
 
@@ -57,7 +57,7 @@ socket.on('newUserConnected', (clientCount, _id, _ids)=>{
     }
 
     //Add initial users to the scene
-    glScene.scene.add(clients[_id].mesh);
+    //glScene.scene.add(clients[_id].mesh);
   }
 
 });
@@ -68,12 +68,16 @@ socket.on('userDisconnected', (clientCount, _id, _ids)=>{
 
   if(_id != id){
     console.log('A user disconnected with the id: ' + _id);
-    glScene.scene.remove(clients[_id].mesh);
+    //glScene.scene.remove(clients[_id].mesh);
     delete clients[_id];
   }
 });
 
 socket.on('connect', ()=>{});
+
+socket.on('reroll', ()=>{
+  glScene.reroll();
+});
 
 //Update when one of the users moves in space
 socket.on('userPositions', _clientProps =>{
